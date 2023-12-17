@@ -11,7 +11,7 @@ function Navbar(props) {
     <nav className='NavBar'>
       <img src='/assets/logo.png' width={67} height={34} alt='Qtify' />
       <Box className="NavBar-InputContainer">
-      <input className="NavBar-Input" placeholder='Search your song.' type="text" id="fname" name="fname"/>
+      <input className="NavBar-Input" placeholder='Search' type="text" id="fname" name="fname"/>
       <Box className="NavBar-Search"><SearchIcon/></Box>
       </Box>
       <CustomButton text={"Give FeedBack"}/>
