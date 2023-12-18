@@ -5,11 +5,12 @@ import './styles.css';
 import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CustomButton from '../CustomButton';
+import Logo from '../Logo';
 
 function Navbar(props) {
   return (
     <nav className='NavBar'>
-      <img src='/assets/logo.png' width={67} height={34} alt='Qtify' />
+      <Logo src={'/assets/logo.png'}/>
       <Box className="NavBar-InputContainer">
       <input className="NavBar-Input" placeholder='Search' type="text" id="fname" name="fname"/>
       <Box className="NavBar-Search"><SearchIcon/></Box>
