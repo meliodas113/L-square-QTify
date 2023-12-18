@@ -1,0 +1,56 @@
+.SongCard{
+    width: 159px;
+    height: 235px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SongCard-ThumbNailContainer{
+    width: 100%;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.SongCard-ThumbNail{
+    width: 100%;
+    height: 170px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.SongCard-Image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Song-Details{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.Song-DetailsInfo{
+    padding: 8px;
+    background: black;
+    color:white;
+    font-size: 10px;
+    border-radius: 40px;
+    font-weight: 400;
+    font-family: "Poppins";
+}
+
+.SongCard-Name{
+    color: white;
+    font-size: 12px;
+    font-family: "Poppins";
+    margin-left: 5px;
+}

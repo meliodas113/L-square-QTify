@@ -1,0 +1,40 @@
+.Section{
+    width: 100vw;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    background-color: black;
+}
+
+.Section-Heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+.Section-SubHeading{
+    color: var(--green);
+    cursor: pointer;
+}
+
+.Section-Grid{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    margin:0 auto;
+    flex-wrap: wrap;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+}
+
+.Section-Card{
+    width: auto;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
