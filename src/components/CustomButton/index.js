@@ -6,7 +6,7 @@ import { Box } from '@mui/material';
 
 function CustomButton({text}) {
   return (
-    <Box className="CustomButton">{text}</Box>
+    <button className="CustomButton">{text}</button>
   )
 }
 
