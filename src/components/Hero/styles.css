@@ -1,0 +1,17 @@
+.Hero{
+    width: 100vw;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: black;
+}
+
+.Hero-Heading{
+    font-family: "Poppins";
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
