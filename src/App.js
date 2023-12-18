@@ -9,8 +9,8 @@ function App() {
     <div>
       <Navbar/>
       <Hero/>
-      <Section heading={"Top Albums"}/>
-      <Section heading={"New Albums"}/>
+      <Section heading={"Top Albums"} api={"top"}/>
+      <Section heading={"New Albums"} api={"new"}/>
     </div>
   );
 }

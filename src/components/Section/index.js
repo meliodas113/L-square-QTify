@@ -6,7 +6,7 @@ import './styles.css';
 import { Box, Grid, Item } from '@mui/material';
 import SongCard from '../SongCard';
 
-function Section({heading}) {
+function Section({heading,api}) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [expand, setExpand] = useState(false);
@@ -15,7 +15,7 @@ function Section({heading}) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://qtify-backend-labs.crio.do/albums/top'
+          `https://qtify-backend-labs.crio.do/albums/${api}`
         );
         setData(response.data);
         console.log(response.data);
