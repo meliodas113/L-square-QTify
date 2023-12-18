@@ -12,10 +12,10 @@ function Navbar(props) {
     <nav className='NavBar'>
       <Logo src={'/assets/logo.png'}/>
       <Box className="NavBar-InputContainer">
-      <input className="NavBar-Input" placeholder='Search' type="text" id="fname" name="fname"/>
+      <input className="NavBar-Input" placeholder='Search a song of your choice' type="text" id="fname" name="fname"/>
       <Box className="NavBar-Search"><SearchIcon/></Box>
       </Box>
-      <CustomButton text={"Give FeedBack"}/>
+      <CustomButton text={"Give Feedback"}/>
     </nav>
   );
 }

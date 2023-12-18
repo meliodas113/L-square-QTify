@@ -3,3 +3,7 @@
   --white: #ffffff;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/assets/Poppins/Poppins-Regular.ttf")
+}
