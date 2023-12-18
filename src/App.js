@@ -10,6 +10,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <Section heading={"Top Albums"}/>
+      <Section heading={"New Albums"}/>
     </div>
   );
 }
