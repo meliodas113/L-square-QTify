@@ -22,9 +22,9 @@
 
 .Section-Grid{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
     margin:0 auto;
     flex-wrap: wrap;
     overflow: hidden;
