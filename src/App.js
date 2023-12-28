@@ -7,10 +7,11 @@ import Section from './components/Section';
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Hero/>
-      <Section heading={"Top Albums"} api={"top"}/>
-      <Section heading={"New Albums"} api={"new"}/>
+      <Navbar />
+      <Hero />
+      <Section heading={'Top Albums'} api={'top'} tabs={false} />
+      <Section heading={'New Albums'} api={'new'} tabs={false} />
+      <Section heading={'Songs'} api={'songs'} tabs={true} />
     </div>
   );
 }

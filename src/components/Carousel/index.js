@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef,useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './styles.css';
 import axios from 'axios';
 
@@ -11,7 +11,7 @@ import SongCard from '../SongCard';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function Carousel({url}) {
+function Carousel({ url, tabs, filter }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const sliderRef = useRef(null);
@@ -30,7 +30,9 @@ function Carousel({url}) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://qtify-backend-labs.crio.do/albums/${url}`
+          tabs
+            ? `https://qtify-backend-labs.crio.do/${url}`
+            : `https://qtify-backend-labs.crio.do/albums/${url}`
         );
         setData(response.data);
         console.log(response.data);
@@ -44,7 +46,7 @@ function Carousel({url}) {
   return (
     <>
       <Box style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-        <Box className="nav-btn" onClick={handlePrev}>
+        <Box className='nav-btn' onClick={handlePrev}>
           <img src='/assets/arrow-l.png' width={32} height={32} alt='Qtify' />
         </Box>
         <Swiper
@@ -54,22 +56,55 @@ function Carousel({url}) {
           loop={true}
           className='mySwiper'
         >
-          {data &&
-            data.map((item) => {
-              return (
-                <SwiperSlide>
-                  <Box key={item.id} className='Section-Card'>
-                    <SongCard
-                      image={item.image}
-                      follows={item.follows}
-                      title={item.title}
-                    />
-                  </Box>{' '}
-                </SwiperSlide>
-              );
-            })}
+          {tabs
+            ? data &&
+              (filter === 'all'
+                ? data.map((item) => {
+                    return (
+                      <SwiperSlide>
+                        <Box key={item.id} className='Section-Card'>
+                          <SongCard
+                            image={item.image}
+                            follows={item.likes}
+                            title={item.title}
+                            tabs={tabs}
+                          />
+                        </Box>{' '}
+                      </SwiperSlide>
+                    );
+                  })
+                : data
+                    .filter((item) => item.genre.label === filter)
+                    .map((item) => {
+                      return (
+                        <SwiperSlide>
+                          <Box key={item.id} className='Section-Card'>
+                            <SongCard
+                              image={item.image}
+                              follows={item.likes}
+                              title={item.title}
+                              tabs={tabs}
+                            />
+                          </Box>{' '}
+                        </SwiperSlide>
+                      );
+                    }))
+            : data &&
+              data.map((item) => {
+                return (
+                  <SwiperSlide>
+                    <Box key={item.id} className='Section-Card'>
+                      <SongCard
+                        image={item.image}
+                        follows={item.follows}
+                        title={item.title}
+                      />
+                    </Box>{' '}
+                  </SwiperSlide>
+                );
+              })}
         </Swiper>
-        <Box className="nav-btn" onClick={handleNext}>
+        <Box className='nav-btn' onClick={handleNext}>
           <img src='/assets/arrow-r.png' width={32} height={32} alt='Qtify' />
         </Box>{' '}
       </Box>
