@@ -39,21 +39,26 @@ function Section({ heading, api, tabs }) {
       }
     };
 
+    fetchData();
+  }, []);
+
+  useEffect(() => {
     const fetchTabsData = async () => {
       try {
         const response = await axios.get(
-          `https://qtify-backend-labs.crio.do/genres`
+          'https://qtify-backend-labs.crio.do/genres'
         );
         setTabsData(response.data);
         console.log(response.data);
       } catch (error) {
+        console.log(error);
         setError(error);
       }
     };
 
     fetchTabsData();
-    fetchData();
   }, []);
+
   return (
     <Box className='Section'>
       <Box className='Section-Heading'>
@@ -69,29 +74,31 @@ function Section({ heading, api, tabs }) {
         <Box>
           <TabContext value={value}>
             <Box sx={{ color: 'white', fontFamily: 'Poppins' }}>
-              <TabList
-                onChange={handleChange}
-                aria-label='lab API tabs example'
-              >
-                <Tab
-                  label={<span className='Tabs-Label'>All</span>}
-                  value='1'
-                />
-                {tabsData.data &&
-                  tabsData.data.map((item, index) => (
-                    <Tab
-                      key={item.label}
-                      label={<span className='Tabs-Label'>{item.label}</span>}
-                      value={`${index + 2}`}
-                    />
-                  ))}
-              </TabList>
+              {tabsData && (
+                <TabList
+                  onChange={handleChange}
+                  aria-label='lab API tabs example'
+                >
+                  <Tab
+                    label={<span className='Tabs-Label'>All</span>}
+                    value='1'
+                  />
+                  {tabsData &&
+                    tabsData.data.map((item, index) => (
+                      <Tab
+                        key={item.label}
+                        label={<span className='Tabs-Label'>{item.label}</span>}
+                        value={`${index + 2}`}
+                      />
+                    ))}
+                </TabList>
+              )}
             </Box>
             <TabPanel value='1'>
               {' '}
               <Carousel url={api} tabs={tabs} filter='all' />
             </TabPanel>
-            {tabsData.data &&
+            {tabsData &&
               tabsData.data.map((item, index) => (
                 <TabPanel value={`${index + 2}`}>
                   {' '}
