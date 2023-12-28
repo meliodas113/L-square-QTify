@@ -77,7 +77,7 @@ function Section({ heading, api, tabs }) {
                   label={<span className='Tabs-Label'>All</span>}
                   value='1'
                 />
-                {tabsData &&
+                {tabsData.data &&
                   tabsData.data.map((item, index) => (
                     <Tab
                       key={item.label}
@@ -91,7 +91,7 @@ function Section({ heading, api, tabs }) {
               {' '}
               <Carousel url={api} tabs={tabs} filter='all' />
             </TabPanel>
-            {tabsData &&
+            {tabsData.data &&
               tabsData.data.map((item, index) => (
                 <TabPanel value={`${index + 2}`}>
                   {' '}
